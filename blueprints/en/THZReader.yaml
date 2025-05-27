@@ -1,0 +1,33 @@
+blueprint:
+  name: THZReader - Action on detected tag
+  description: >
+    Triggers an action when a "tag UID" entity detects a tag with the expected UID.
+  domain: automation
+  input:
+    tag_entity:
+      name: Tag UID entity
+      description: The entity that contains the detected tag UID.
+      selector:
+        entity:
+          domain: sensor
+    tag_id:
+      name: Expected Tag ID
+      description: >
+        UID of the tag that should trigger the action.
+          Enter the UID exactly as shown, excluding colons (e.g., 042512AB).
+      selector:
+        text:
+    action:
+      name: Action
+      description: Action to execute when the correct tag is detected.
+      selector:
+        action: {}
+trigger:
+  - platform: state
+    entity_id: !input tag_entity
+    to: !input tag_id
+action:
+  - choose:
+      - conditions: []
+        sequence: !input action
+mode: single
