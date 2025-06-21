@@ -1,3 +1,11 @@
+// Zigbee2MQTT device definition for THZReader
+// This file is used to define the device's capabilities, exposes, and converters.
+
+// Version: 1.0 - 17/06/2025 - Initial release
+
+// License: Creative Commons BY-NC 4.0
+// Author: THED&Co
+
 const zigbeeHerdsmanConverters = require('zigbee-herdsman-converters');
 const zigbeeHerdsmanUtils = require('zigbee-herdsman-converters/lib/utils');
 
@@ -7,7 +15,6 @@ const e = exposes.presets;
 
 const fz = zigbeeHerdsmanConverters.fromZigbeeConverters || zigbeeHerdsmanConverters.fromZigbee;
 
-// Ajout du convertisseur ptvo_switch_uart
 fz.THZReader = {
     cluster: "genMultistateValue",
     type: ["attributeReport", "readResponse"],

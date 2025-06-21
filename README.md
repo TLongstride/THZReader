@@ -2,6 +2,10 @@
 
 This repository gathers all the resources for the **THZReader** (Zigbee ISO 15693 RFID reader).
 
+## News
+
+**22 June 2024** — **New!** THZReader is now compatible with **ZHA** (Home Assistant's Zigbee integration)!
+
 ## User Manual
 
 The user manual for THZReader is available in the following languages:
@@ -12,7 +16,8 @@ The user manual for THZReader is available in the following languages:
 ## Repository Contents
 
 - **User Manual**: User documentation for installation, configuration, and usage of THZReader.
-- **External Converter for Zigbee2MQTT**: External converter file for integrating THZReader with Zigbee2MQTT ([Zigbee2MQTT/THZReader.js](Zigbee2MQTT/THZReader.js)).
+- **External Converter for Zigbee2MQTT**: External converter file for integrating THZReader with Zigbee2MQTT ([Zigbee2MQTT/THZReader.js](Zigbee2MQTT/THZReader.js)).  
+- **External quirk for ZHA**: Custom device handler for integrating THZReader with Home Assistant's ZHA ([ZHA/custom_zha_quirks/THZReader.py](ZHA/custom_zha_quirks/THZReader.py)).
 - **Technical Resources**: Schematics, technical notes, configuration examples, etc.
 
 ## Tested RFID Tags and Reading Distances
@@ -42,9 +47,25 @@ For Zigbee2MQTT Home Assistant Addon:
 5. Restart Zigbee2MQTT.
 6. In the **Settings** tab, enter `device_icons/THZReader.png` in the **icon** field to set the custom device icon.
 
+## Using the ZHA Custom Quirk
+
+1. Navigate to the config directory of your Home Assistant instance.
+2. Create a folder named custom_zha_quirks if it does not already exist.
+3. Copy the thzreader.py file into the custom_zha_quirks folder.
+4. Make sure you have an empty __init__.py file in the custom_zha_quirks folder so ZHA recognizes the quirks.
+5. Then, add the following lines to your configuration.yaml file:
+```
+zha:
+   enable_quirks: true
+   custom_quirks_path: /config/custom_zha_quirks
+```
+6. Restart Home Assistant.
+
 ## 🛠️ Home Assistant Blueprint
 
 Simplify the integration of THZReader into your Home Assistant automations with this blueprint. It enables triggering specific actions based on RFID badge detection.
+
+**For Zigbee2MQTT**
 
 The blueprint is available in **French** :
 
@@ -53,6 +74,12 @@ The blueprint is available in **French** :
 The blueprint is available in **English** :
 
 [![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/TLongstride/THZReader/blob/main/blueprints/en/THZReader.yaml)
+
+**For ZHA**
+
+The blueprint is available in **French/English** :
+
+[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/TLongstride/THZReader/blob/main/blueprints/fr/THZReader_ZHALink.yaml)
 
 ## Where to Buy
 
@@ -80,5 +107,5 @@ Watch the THZReader reader in action on [YouTube](https://www.youtube.com/@THEDa
 
 ---
 
-For any questions or suggestions, feel free to open an issue or contact us at [contact.thedco@gmail.com](mailto:contact.thedco@gmail.com).
+For any questions or suggestions, feel free to open an issue or contact us at [contact@thedandco.ovh](mailto:contact@thedandco.ovh).
 

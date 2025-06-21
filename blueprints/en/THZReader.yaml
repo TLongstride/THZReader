@@ -1,5 +1,6 @@
 blueprint:
   name: THZReader - Action on detected tag
+  author: THED&Co
   description: >
     Triggers an action when a "tag UID" entity detects a tag with the expected UID.
   domain: automation

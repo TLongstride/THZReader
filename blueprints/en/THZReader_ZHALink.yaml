@@ -1,0 +1,34 @@
+blueprint:
+  name: ZHA tag_scanned → tag_scanned (Home Assistant)
+  author: THED&Co
+  description: >
+    FR : Transpose un zha_event avec command: tag_scanned en un événement tag_scanned natif Home Assistant, utilisant args.uid comme tag_id.
+    EN : Transposes a zha_event with command: tag_scanned into a native Home Assistant tag_scanned event, using args.uid as tag_id.
+  domain: automation
+  input:
+    info_fr:
+      name: Information FR/EN
+      description: >
+        FR Pour activer ce blueprint, écrivez « ok » dans ce champ.
+        EN To enable this blueprint, type "ok" in this field.
+      default: ''
+      selector:
+        text:
+
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      command: tag_scanned
+
+condition:
+  - condition: template
+    value_template: "{{ trigger.event.data.args.uid != 'none' }}"
+
+action:
+  - event: tag_scanned
+    event_data:
+      tag_id: "{{ trigger.event.data.args.uid }}"
+      device_id: "{{ trigger.event.data.device_id }}"
+
+mode: single
