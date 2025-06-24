@@ -83,7 +83,9 @@ The blueprint is available in **French/English** :
 
 ## Where to Buy
 
-You can purchase THZReader on [Tindie](https://www.tindie.com/products/38459/).
+You can purchase THZReader on [my Webshop](https://(https://thedandco.ovh/)) or on [Tindie](https://www.tindie.com/products/38459/).
+
+<a href="https://thedandco.ovh/"><img src="https://thedandco.ovh/wp-content/uploads/2025/06/Logo_Fond_Clair.png" alt="I sell on my Webshop" width="200" height="55"></a>
 
 <a href="https://www.tindie.com/stores/thedandco/?ref=offsite_badges&utm_source=sellers_THEDco&utm_medium=badges&utm_campaign=badge_small"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png" alt="I sell on Tindie" width="200" height="55"></a>
 
